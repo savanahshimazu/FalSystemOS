@@ -18,6 +18,9 @@ show_submenu() {
             *) . "$folder/$choice.sh"; break;;
         esac
     done
+
+    # After execution, return to the main menu
+    return 0
 }
 
 # Main menu options
