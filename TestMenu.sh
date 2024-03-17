@@ -10,12 +10,14 @@ show_submenu() {
     
     options+=("Back")
 
-    local choice
-    choice=$(dialog --clear --title "Submenu - $folder" --menu "Choose an option:" 15 50 5 "${options[@]}" 2>&1 >/dev/tty)
-    case "$choice" in
-        Back) return;;
-        *) . "$folder/$choice.sh";;
-    esac
+    while true; do
+        local choice
+        choice=$(dialog --clear --title "Submenu - $folder" --menu "Choose an option:" 15 50 5 "${options[@]}" 2>&1 >/dev/tty)
+        case "$choice" in
+            Back) break;;
+            *) . "$folder/$choice.sh";;
+        esac
+    done
 }
 
 # Main menu options
