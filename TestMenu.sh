@@ -8,11 +8,20 @@ show_submenu() {
         options+=("$(basename "$file" .sh)")
     done < <(find "$folder" -type f -name "*.sh" -print0)
     
+    options+=("Back")
+
     local choice
-    choice=$(dialog --clear --title "Submenu - $folder" --menu "Choose an option:" 15 50 5 "${options[@]}" 2>&1 >/dev/tty)
-    if [[ -n $choice ]]; then
-        . "$folder/$choice.sh"
-    fi
+    while true; do
+        choice=$(dialog --clear --title "Submenu - $folder" --menu "Choose an option:" 15 50 5 "${options[@]}" 2>&1 >/dev/tty)
+        case "$choice" in
+            "Back") return;;
+            *) 
+                if [[ -n $choice ]]; then
+                    . "$folder/$choice.sh"
+                fi
+                ;;
+        esac
+    done
 }
 
 # Main menu options
