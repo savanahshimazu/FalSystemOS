@@ -14,8 +14,8 @@ show_submenu() {
         local choice
         choice=$(dialog --clear --title "Submenu - $folder" --menu "Choose an option:" 15 50 5 "${options[@]}" 2>&1 >/dev/tty)
         case "$choice" in
-            Back) break;;
-            *) . "$folder/$choice.sh";;
+            Back) return;;
+            *) . "$folder/$choice.sh"; break;;
         esac
     done
 }
