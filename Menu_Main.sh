@@ -40,7 +40,7 @@ while true; do
         1) show_submenu "Utility";;
         2) show_submenu "Web";;
         3) show_submenu "Entertainment";;
-        4) ./Menu_Personal.sh;;
+        4) sudo bash Menu_Personal.sh;;
         5) echo "Settings option is not implemented yet.";;
         *) break;;
     esac
