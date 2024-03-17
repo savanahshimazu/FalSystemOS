@@ -68,7 +68,6 @@ show_system_info() {
 
 # Main function
 main() {
-    show_system_info &
     show_menu
 }
 
