@@ -37,6 +37,7 @@ dependency_install() {
     # sudo apt-get install -y calendar_app analog_clock_app email_client_app word_processor_app spreadsheets_app calculator_app notes_app
     echo "Installing dependencies..."
     sleep 2
+    sudo apt-get install -y khal mutt wordgrinder sc wcalc
     echo "Dependencies installed successfully."
     sleep 1
     main_menu
@@ -46,6 +47,7 @@ dependency_install() {
 calendar() {
     echo "Launching Calendar..."
     # Put your calendar application launching command here
+    khal
     sleep 2
     main_menu
 }
@@ -60,6 +62,7 @@ analog_clock() {
 email_client() {
     echo "Launching Email Client..."
     # Put your email client application launching command here
+    mutt
     sleep 2
     main_menu
 }
@@ -67,6 +70,7 @@ email_client() {
 word_processor() {
     echo "Launching Word Processor..."
     # Put your word processor application launching command here
+    wordgrinder
     sleep 2
     main_menu
 }
@@ -74,6 +78,7 @@ word_processor() {
 spreadsheets() {
     echo "Launching Spreadsheets..."
     # Put your spreadsheets application launching command here
+    sc
     sleep 2
     main_menu
 }
@@ -81,6 +86,7 @@ spreadsheets() {
 calculator() {
     echo "Launching Calculator..."
     # Put your calculator application launching command here
+    wcalc
     sleep 2
     main_menu
 }
