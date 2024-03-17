@@ -25,7 +25,7 @@ main_menu() {
         6) calculator;;
         7) notes;;
         8) dependency_install;;
-        9) ./MainMenu.sh;;
+        9) ./Menu_Main.sh;;
         *) echo "Invalid option";;
     esac
 }
