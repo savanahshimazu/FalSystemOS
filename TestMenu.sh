@@ -8,11 +8,14 @@ show_submenu() {
         options+=("$(basename "$file" .sh)")
     done < <(find "$folder" -type f -name "*.sh" -print0)
     
+    options+=("Back")
+
     local choice
     choice=$(dialog --clear --title "Submenu - $folder" --menu "Choose an option:" 15 50 5 "${options[@]}" 2>&1 >/dev/tty)
-    if [[ -n $choice ]]; then
-        . "$folder/$choice.sh"
-    fi
+    case "$choice" in
+        Back) return;;
+        *) . "$folder/$choice.sh";;
+    esac
 }
 
 # Main menu options
@@ -32,6 +35,6 @@ while true; do
         2) show_submenu "Web";;
         3) show_submenu "Entertainment";;
         4) echo "Settings option is not implemented yet.";;
-        *) exit;;
+        *) break;;
     esac
 done
