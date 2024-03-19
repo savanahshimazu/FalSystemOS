@@ -42,6 +42,6 @@ while true; do
         3) show_submenu "Entertainment";;
         4) sudo bash Menu_Personal.sh;;
         5) echo "Settings option is not implemented yet.";;
-        *) break;;
+        *) sudo bash logout_prompt.sh;;
     esac
 done
